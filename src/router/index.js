@@ -1,11 +1,29 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import PlantListBuilder from '../views/PlantListBuilder.vue'
+import Placeholder1 from '../views/Placeholder1.vue'
+import Placeholder2 from '../views/Placeholder2.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/PlantListBuilder',
+    name: 'PlantListBuilder',
+    component: PlantListBuilder
+  },
+  {
+    path: '/Placeholder1',
+    name: 'Placeholder1',
+    component: Placeholder1
+  },
+  {
+    path: '/Placeholder2',
+    name: 'Placeholder2',
+    component: Placeholder2
   },
   {
     path: '/about',
