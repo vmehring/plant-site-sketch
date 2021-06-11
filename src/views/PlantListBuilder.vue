@@ -25,8 +25,36 @@ export default {
   components: {
     Header,
     Footer
-  }
-
+  },
+  mounted(){
+    const data = {
+      "criteriaType" : "species",
+      "locationCriteria" : [ {
+        "paramType" : "subnation",
+        "subnation" : "WA",
+        "nation" : "US"
+      }],
+      "speciesTaxonomyCriteria": [{ "paramType" : "informalTaxonomy",
+        "informalTaxonomy" : "Plants - Vascular Plants"
+      }],
+      "locationOptions" : {
+        "origin" : "onlyNatives"
+      },
+    }
+    fetch("https://explorer.natureserve.org/api/data/speciesSearch", {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(data)
+    })
+    .then(resp => {console.log(resp); return resp.json()
+    })
+    .then(json => console.log(json)
+    )}
 }
 
 </script>
