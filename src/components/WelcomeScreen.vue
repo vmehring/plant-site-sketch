@@ -1,10 +1,10 @@
 <template>
     <div id="welcome-screen">
-      <div id="welcome-screen__content1"><router-link to="/Placeholder1"><h3>Placeholder1</h3></router-link></div>
+      <div id="welcome-screen__content1"><router-link to="/Conifers"><h3>Conifers</h3></router-link></div>
       <div id="welcome-screen__content2"><router-link to="/PlantListBuilder"><h2>Build Your Garden</h2></router-link></div>
-      <div id="welcome-screen__content3"><h1>Explore</h1></div>
-      <div id="welcome-screen__content4"><h1>Plants</h1></div>
-      <div id="welcome-screen__content5"><router-link to="/Placeholder2"><h3>Placeholder2</h3></router-link></div>
+      <div id="welcome-screen__content3"><h1>Native Plants</h1></div>
+      <div id="welcome-screen__content4"><h1>of Washington</h1></div>
+      <div id="welcome-screen__content5"><router-link to="/Broadleafs"><h3>Broadleafs</h3></router-link></div>
     </div>
 </template>
 
