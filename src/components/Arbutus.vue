@@ -1,35 +1,23 @@
 <template lang="html">
-  <Header/>
-  <div class="placeholder">
-    <h2>Broadleaf trees and shrubs</h2>
-    <Acer/>
-    <Alnus/>
-    <Arbutus/>
-    <Betula/>
-    <Crataegus/>
+  
+  <div class="madrone-component">
+    <h3>Madrone</h3>
+    <ul id="madrone-list">
+      <li v-for="madrone in arbutus">{{ madrone.primaryCommonName }} - {{ madrone.scientificName}}</li>
+    </ul>
   </div>
-  <Footer/>
+  
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import Acer from '@/components/Acer.vue'
-import Alnus from '@/components/Alnus.vue'
-import Arbutus from '@/components/Arbutus.vue'
-import Betula from '@/components/Betula.vue'
-import Crataegus from '@/components/Crataegus.vue'
 
 export default {
-  name: 'Broadleafs',
+  name: 'Arbutus',
   components: {
     Header,
-    Footer,
-    Acer,
-    Alnus,
-    Arbutus,
-    Betula,
-    Crataegus
+    Footer
   },
    props: {
     primaryCommonName: {
@@ -47,9 +35,7 @@ export default {
   },
   data(){
     return {
-      broadleafs: [],
-      trees: [], 
-      test: this.testFunc()
+      arbutus: []
     }
   },
    mounted(){
@@ -62,14 +48,14 @@ export default {
       }],
       "speciesTaxonomyCriteria": [{ "paramType" : "scientificTaxonomy",
         "level" : "genus",
-        "scientificTaxonomy" : ("Acer" , "Alnus"),
+        "scientificTaxonomy" : "Arbutus",
         "kingdom" : "Plantae"
       }],
       "locationOptions" : {
         "origin" : "onlyNatives"
       },
       "pagingOptions" : {
-        "recordsPerPage" : 3000
+        "recordsPerPage" : 30
       }
     }
     fetch("https://explorer.natureserve.org/api/data/speciesSearch", {
@@ -86,13 +72,8 @@ export default {
     })
     .then(json => {
       console.log(json)
-      this.trees = json.results
+      this.arbutus = json.results
      })
-   },
-   methods: {
-     testFunc() {
-       return "Happy trees"
-     }
    },
    
 }
